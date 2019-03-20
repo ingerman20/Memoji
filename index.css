@@ -1,0 +1,186 @@
+body {
+    --gap: 25px;
+    --size: 130px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #CFD0CF;
+    color: #434344;
+    text-align: center;
+    overflow: hidden;
+    user-select: none;
+}
+
+h1 {
+    line-height: 47px;
+    padding: 40px 0;
+    margin: 0;
+    font-size: 42px;
+}
+
+.field {
+    margin: 0 auto;
+    width: calc(4 * var(--size) + 3 * var(--gap));
+    display: grid;
+    flex-grow: 3;
+    grid-gap: var(--gap);
+    grid-template-columns: repeat(4, 1fr);
+    perspective: 600px;
+}
+
+.card {
+    box-sizing: border-box;
+    width: var(--size);
+    height: var(--size);
+    border: 5px solid #fff;
+    border-radius: 9px;
+    background: linear-gradient(45deg, #22AB93, #19668D);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5) ;
+    color: rgba(0,0,0,0);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.card:after {
+    position: relative;
+    top: 15px;
+    font-size: 75px;
+    content: attr(data-value);
+}
+
+.opened {
+    transform: rotate3d(0,1,0,180deg);
+    animation: cardRotation;
+    animation-duration: 0.5s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+.wrong {
+    transform: rotate3d(0,1,0,180deg) !important;
+    background: #F00 !important;
+}
+
+.finished {
+    background: #0F0 !important;
+}
+
+.time {
+    display: none;
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+@keyframes cardRotation {
+    25% {
+        color: rgba(0,0,0,0);
+    }
+
+    100% {
+        background: linear-gradient(90deg, #ffffff, #ffffff);
+        color: rgba(0,0,0,1);
+    }
+}
+
+
+.gameOver {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.messageBox {
+    --msgBoxHeight: 188px;
+    display: block;
+    height: var(--msgBoxHeight);
+    width: 380px;
+    min-width: 350px;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: calc(50vh - var(--msgBoxHeight)/2);
+}
+
+.message {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.newGame {
+    width: 80px;
+    display: block;
+    margin: 0 auto;
+    font-size: 17px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #19668D, #22AB93);
+    color: #FFF;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5) ;
+}
+
+.newGame:hover {
+    background: linear-gradient(45deg, #19668D, #22CD93);
+    cursor: pointer;
+}
+
+.newGame:active {
+    box-shadow: inset -2px 1px 8px rgba(0,0,0,0.5) ;
+}
+
+
+.show {
+    display: block;
+}
+
+
+.letter {
+    display: inline-block;
+}
+
+
+@keyframes dancingCaption {
+    100% {
+        transform: scaleY(1.50) translateY(-10px);
+    }
+}
+
+
+
+/*.card {*/
+    /*height: 130px;*/
+    /*width: 130px;*/
+    /*box-sizing: border-box;*/
+    /*background: linear-gradient(45deg, #22ab93, #19668d);*/
+    /*border: 5px solid #fff;*/
+    /*border-radius: 9px;*/
+    /*box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);*/
+    /*perspective: 60px;*/
+    /*transition: 0.5s;*/
+    /*color: rgba(0,0,0,0);*/
+/*}*/
+
+/*.opened {*/
+    /*transform: rotateY(180deg);*/
+    /*background: #fff;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*border: 0;*/
+    /*color: rgba(0,0,0,1);*/
+/*}*/
+
+/*.opened:before {*/
+    /*font-size: 75px;*/
+    /*content: attr(data-value);*/
+/*}*/
+
+/*.matched {*/
+    /*background: green;*/
+/*}*/
+
